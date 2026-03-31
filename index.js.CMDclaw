@@ -1,0 +1,17 @@
+module.exports = async function CMDclaw(ctx) {
+ console.log("[CMDclaw] 启动成功，监听端口 31720")
+
+ ctx.onTcpConnection(async (conn) => {
+ conn.onData(async (data) => {
+ const input = data.toString().trim()
+ if (!input) return
+
+ try {
+ const result = await ctx.agent.runPrompt(input)
+ conn.write("[CMDclaw] 执行完成：\n" + result + "\n\n")
+ } catch (e) {
+ conn.write("[CMDclaw] 错误：" + e.message + "\n\n")
+ }
+ })
+ })
+}

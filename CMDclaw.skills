@@ -1,0 +1,27 @@
+{
+  "name": "CMDclaw",
+  "display_name": "CMDclaw 终端接入",
+  "author": "AISTART 智能建模自动化工作室",
+  "version": "1.0.0",
+  "description": "全球首创：让 OpenClaw 机器人接入系统原生 CMD / 终端，Windows / Mac / Linux 全平台支持",
+  "category": "system",
+  "main": "index.js",
+  "trigger": {
+    "auto_start": true,
+    "listen_port": 31720,
+    "protocol": "tcp"
+  },
+  "support": {
+    "windows": "CMD, PowerShell",
+    "macos": "Terminal",
+    "linux": "Shell"
+  },
+  "require_openclaw": true,
+  "scenes": [
+    "本机直接调用",
+    "远程终端控制",
+    "无界面AI服务",
+    "轻量自动化"
+  ],
+  "manifest_version": 1
+}
