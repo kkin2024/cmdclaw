@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CMDclaw — 跨平台原生终端调用 OpenClaw AI 能力</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            color: #fff;
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(90deg, #00d4ff, #ff0080);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .tagline {
+            font-size: 1.5rem;
+            color: #e0e0e0;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        .hero-desc {
+            font-size: 1.2rem;
+            color: #b0b0b0;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .versions {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-bottom: 80px;
+        }
+
+        .version-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 30px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .version-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border-color: rgba(0, 212, 255, 0.5);
+        }
+
+        .version-card h2 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: #00d4ff;
+        }
+
+        .version-card .support {
+            font-size: 1rem;
+            color: #ccc;
+            margin-bottom: 10px;
+        }
+
+        .version-card .scene {
+            font-size: 0.95rem;
+            color: #aaa;
+            margin-bottom: 10px;
+        }
+
+        .version-card .form {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 5px 12px;
+            background: rgba(0, 212, 255, 0.15);
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: #00d4ff;
+        }
+
+        .architecture {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 20px;
+            padding: 50px 30px;
+            margin-bottom: 80px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .architecture h2 {
+            font-size: 2.2rem;
+            margin-bottom: 30px;
+            text-align: center;
+            color: #fff;
+        }
+
+        .architecture-flow {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            font-size: 1.2rem;
+        }
+
+        .flow-step {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 15px 30px;
+            border-radius: 12px;
+            text-align: center;
+            min-width: 300px;
+        }
+
+        .flow-arrow {
+            font-size: 2rem;
+            color: #00d4ff;
+        }
+
+        .final-slogan {
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .final-slogan h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            background: linear-gradient(90deg, #ff0080, #00d4ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.4;
+        }
+
+        .final-slogan p {
+            font-size: 1.25rem;
+            color: #ccc;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            .tagline {
+                font-size: 1.2rem;
+            }
+            .versions {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>CMDclaw</h1>
+            <p class="tagline">跨平台原生终端调用 OpenClaw AI 能力</p>
+            <p class="hero-desc">让任何系统、任何终端，都能直接连接 OpenClaw，零额外软件、原生体验。</p>
+        </header>
+
+        <section class="versions">
+            <div class="version-card">
+                <h2>CMDclaw for Windows</h2>
+                <p class="support"><strong>支持：</strong>Windows 10/11 原生 CMD / PowerShell</p>
+                <p class="scene"><strong>运行：</strong>已部署 OpenClaw 的电脑</p>
+                <p class="scene"><strong>功能：</strong>指令收发、AI 调用、结果回显</p>
+                <span class="form">形态：.skills 插件</span>
+            </div>
+
+            <div class="version-card">
+                <h2>CMDclaw for macOS</h2>
+                <p class="support"><strong>支持：</strong>macOS 全系列 原生终端 Terminal</p>
+                <p class="scene"><strong>场景：</strong>连接远程 Windows OpenClaw 主机</p>
+                <p class="scene"><strong>未来：</strong>支持 macOS 版 OpenClaw</p>
+                <p class="scene"><strong>特点：</strong>苹果电脑不用装任何软件，打开终端直接用</p>
+                <span class="form">形态：Shell 脚本 + Skills 联动</span>
+            </div>
+
+            <div class="version-card">
+                <h2>CMDclaw for Linux</h2>
+                <p class="support"><strong>支持：</strong>Ubuntu、CentOS 等服务器原生终端</p>
+                <p class="scene"><strong>用途：</strong>云端、服务器环境远程调用 OpenClaw</p>
+                <span class="form">形态：轻量脚本 + 网络通道</span>
+            </div>
+        </section>
+
+        <section class="architecture">
+            <h2>全平台统一架构</h2>
+            <div class="architecture-flow">
+                <div class="flow-step">一台 OpenClaw 主机（Windows 为主）</div>
+                <div class="flow-arrow">↓</div>
+                <div class="flow-step">安装 CMDclaw 核心 Skill</div>
+                <div class="flow-arrow">↓</div>
+                <div class="flow-step">任何设备（Windows / Mac / Linux）</div>
+                <div class="flow-arrow">↓</div>
+                <div class="flow-step">打开系统自带终端</div>
+                <div class="flow-arrow">↓</div>
+                <div class="flow-step">连接 OpenClaw</div>
+                <div class="flow-arrow">↓</div>
+                <div class="flow-step">直接使用 AI 能力</div>
+            </div>
+        </section>
+
+        <section class="final-slogan">
+            <h2>CMDclaw：让全世界每一台电脑的原生终端，都能用上 OpenClaw AI。</h2>
+            <p>一套架构，全平台支持，真正的轻量化、无感化、首创级体验。</p>
+        </section>
+
+        <section class="download">
+            <div class="download-card">
+                <h2>立即下载</h2>
+                <p class="download-desc">最新版本 v1.0.0 • 完整源码包</p>
+                <div class="download-links">
+                    <a href="CMDclaw-1.0.0.tar.gz" class="download-btn">下载完整压缩包</a>
+                    <a href="CMDclaw.skills" class="download-btn">查看 CMDclaw.skills</a>
+                    <a href="index.js.CMDclaw" class="download-btn">查看 index.js</a>
+                </div>
+                <div class="install-guide">
+                    <h3>安装说明</h3>
+                    <ol>
+                        <li>在 OpenClaw 的 <code>skills/</code> 目录新建文件夹：<code>CMDclaw</code></li>
+                        <li>将 <code>CMDclaw.skills</code> 和 <code>index.js</code> 放入该文件夹</li>
+                        <li>重启 OpenClaw</li>
+                        <li>打开 CMD / 终端，连接本机 31720 端口即可使用</li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>© 2026 AISTART 智能建模自动化工作室 • CMDclaw • Powered by OpenClaw</p>
+    </footer>
+
+<style>
+.download {
+    margin-top: 60px;
+}
+.download-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    padding: 40px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.download-card h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    color: #fff;
+}
+.download-desc {
+    color: #ccc;
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+}
+.download-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+.download-btn {
+    display: display;
+    padding: 12px 24px;
+    background: linear-gradient(135deg, #00d4ff, #0072ff);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 500;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.download-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 212, 255, 0.4);
+}
+.install-guide {
+    text-align: left;
+    max-width: 700px;
+    margin: 0 auto;
+    color: #ddd;
+}
+.install-guide h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #00d4ff;
+}
+.install-guide ol {
+    padding-left: 20px;
+}
+.install-guide li {
+    margin-bottom: 10px;
+    line-height: 1.8;
+}
+.install-guide code {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 3px 8px;
+    border-radius: 5px;
+    font-family: monospace;
+}
+@media (max-width: 768px) {
+    .download-links {
+        flex-direction: column;
+    }
+}
+</style>
+</body>
+</html>
